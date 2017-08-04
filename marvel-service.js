@@ -1,5 +1,5 @@
 function MarvelService() {
-  var apiKey = "?apikey=e44062bbc76b37176b08325d5265a0f3";
+  var apiKey = "apikey=277ec1413e4fa431f1b23b3deb983bcc";
   var baseUrl = "https://gateway.marvel.com:443/v1/public/characters";
 
   var marvelResults = []
@@ -12,7 +12,14 @@ function MarvelService() {
     //   query = '/' + query
     // }
 
-    $.get(baseUrl + query + apiKey).then(function(res){
+
+
+
+//$.get("https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=ant&apikey=277ec1413e4fa431f1b23b3deb983bcc").then(console.log);
+
+    var searchq = `?nameStartsWith=${query}&`;
+
+    $.get(baseUrl + searchq + apiKey).then(function(res){
       marvelResults = res.data.results
       cb(res.data.results)
     })

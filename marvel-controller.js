@@ -32,5 +32,9 @@ function MarvelController() {
   }
 
 
-  service.search('', drawMarvel);
+  this.getSearch = function (e){
+    e.preventDefault(); //prevent reload on search.
+    //make the search query
+    service.search(e.search, drawMarvel);
+  }
 }
